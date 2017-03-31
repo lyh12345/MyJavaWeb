@@ -4,6 +4,22 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>Index.jsp</welcome-file>
     </welcome-file-list>
+    <servlet>
+        <servlet-name>mainServlet</servlet-name>
+        <servlet-class>servlet.MainServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mainServlet</servlet-name>
+        <url-pattern>/mainServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>scoreQueryServlet</servlet-name>
+        <servlet-class>servlet.ScoreQueryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>scoreQueryServlet</servlet-name>
+        <url-pattern>/scoreQueryServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

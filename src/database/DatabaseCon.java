@@ -62,4 +62,7 @@ public class DatabaseCon {
             e.printStackTrace();
         }
     }
+    public Connection getConnection(){
+        return connection;
+    }
 }
