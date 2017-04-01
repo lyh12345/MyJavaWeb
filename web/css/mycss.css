@@ -9,7 +9,6 @@
     align-self: center;
     align-content: center;
     align-items: center;
-    background-image: url(login.jpg);
 }
 .head1{
     width: 99%;
@@ -22,9 +21,9 @@
 }
 .main_left{
     width: 100%;
-    border: 1px;
-    border-color: aquamarine;
+    border: 1px aquamarine;
     height: 100%;
+    background-color: #a9e2a7;
 }
 /* Basic Grey */
 .basic-grey {
@@ -63,7 +62,7 @@
     margin-top: 10px;
     color: #888;
 }
-.basic-grey input[type="text"], .basic-grey input[type="password"], .basic-grey textarea, .basic-grey select {
+.basic-grey input[type="text"], .basic-grey input[type="password"],.basic-grey input[type="email"], .basic-grey textarea, .basic-grey select {
     border: 1px solid #DADADA;
     color: #888;
     height: 30px;
@@ -131,6 +130,7 @@ table.imagetable {
     border-width: 1px;
     border-color: #999999;
     border-collapse: collapse;
+    background-color: beige;
 }
 table.imagetable th {
     background: #ffffff;

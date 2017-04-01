@@ -19,18 +19,19 @@ import java.sql.SQLException;
 public class MainServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
         request.setCharacterEncoding("UTF-8");
+        //获取提交的数据
         String usr = request.getParameter("userId");
         String pwd = request.getParameter("password");
         boolean validated = false;
         DatabaseCon sqlserverDB = new DatabaseCon();
         HttpSession session = request.getSession();
         UserTable userTable = null;
-        userTable = (UserTable) session.getAttribute("user");
+        userTable = (UserTable) session.getAttribute("user");//获取用户信息
         if(userTable == null){
             String sql = "select * from S";
             ResultSet rs= sqlserverDB.executeQuery(sql);
             try {
-                while(rs.next()){
+                while(rs.next()){//信息的比对
                     if(rs.getString(1).trim().compareTo(usr)==0&&rs.getString(8).trim().compareTo(pwd)==0){
                         userTable = new UserTable();
                         userTable.setId(rs.getString(1));
@@ -47,7 +48,7 @@ public class MainServlet extends HttpServlet {
             }
             sqlserverDB.closeStatement();
             sqlserverDB.closeConnection();
-        }
+       }
         else{
             validated = true;
         }

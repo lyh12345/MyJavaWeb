@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="MyJavaWeb:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/MyJavaWeb_war</output-path>
+    <root id="archive" name="MyJavaWeb_war.war">
+      <element id="artifact" artifact-name="MyJavaWeb:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="file-copy" path="C:/sqljdbc42.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

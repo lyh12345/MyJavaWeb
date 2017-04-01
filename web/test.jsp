@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="css/mycss.css">
 <link rel="stylesheet" type="text/css" href="css/magic.css">
 <body>
-<form action="" method="post" class="STYLE-NAME">
+<form action="" method="post" class="basic-grey">
     <h1>Contact Form
         <span>Please fill all the texts in the fields.</span>
     </h1>

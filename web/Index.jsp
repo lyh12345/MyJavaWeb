@@ -14,34 +14,32 @@
 <link rel="stylesheet" type="text/css" href="css/mycss.css">
 <link rel="stylesheet" type="text/css" href="css/magic.css">
 <div class="magictime puffIn">
-<form action="mainServlet" method="post" class="basic-grey">
+    <form action="mainServlet" method="post" class="basic-grey">
 
-
-
-    <h1>请登陆
-    </h1>
-            <label>
-                <span>学号:</span>
-                <input type="text" name="userId" size="20"/>
-            </label>
-            <label>
-                <span>密码:</span>
-                <input type="password" name="password" size="20"/>
-            </label>
-    <center>
+        <h1>请登陆
+        </h1>
         <label>
-            <input type="radio" name="roles" value="student" >学生
-            <input type="radio" name="roles" value="teacher" >老师
-            <input type="radio" name="roles" value="manager" >管理员
+            <span>学号:</span>
+            <input type="text" name="userId" size="20"/>
         </label>
-        <br>
         <label>
-            <input type="submit" value="登陆">
+            <span>密码:</span>
+            <input type="password" name="password" size="20"/>
         </label>
-    </center>
+        <center>
+            <label>
+                <input type="radio" name="roles" value="student" checked="checked">学生
+                <input type="radio" name="roles" value="teacher">教师
+                <input type="radio" name="roles" value="manager">管理员
+            </label>
+            <br>
+            <label>
+                <input type="submit" value="登陆">
+            </label>
+        </center>
 
 
-</form>
+    </form>
 </div>
 </body>
 </html>
