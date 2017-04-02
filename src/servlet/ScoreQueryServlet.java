@@ -30,11 +30,12 @@ public class ScoreQueryServlet extends HttpServlet {
             return;
         }
         String studentId = userTable.getId();
+        String currentTerm = null;
+        currentTerm = (String) session.getAttribute("currentTerm");
         DatabaseCon databaseCon = new DatabaseCon();
         List<ScoreTable> scoreTables = null;
-        scoreTables = (List<ScoreTable>) session.getAttribute("score");
         scoreTables = new ArrayList<>();
-        String sql = "select * from E,C where E.kh = C.kh and xh = " + "'" + userTable.getId() + "'";
+        String sql = "select * from E,C where E.kh = C.kh and xh = " + "'" + userTable.getId() + "' and xq = "+"'"+currentTerm+"'";
         ResultSet rs = databaseCon.executeQuery(sql);
         try {
             while (rs.next()) {//查询并保存成绩信息
@@ -45,14 +46,18 @@ public class ScoreQueryServlet extends HttpServlet {
                 scoreTable.setCourseGrade(rs.getDouble(rs.findColumn("zpcj")));
                 scoreTables.add(scoreTable);
             }
+        } catch (SQLException e) {
+            //e.printStackTrace();
+            resp.sendRedirect("ScoreQuery.jsp");
+        }
+        try {
             rs.close();
-            databaseCon.closeStatement();
-            databaseCon.closeConnection();
-            session.setAttribute("score", scoreTables);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        databaseCon.closeStatement();
+        databaseCon.closeConnection();
+        session.setAttribute("score", scoreTables);
         resp.sendRedirect("ScoreQuery.jsp");
     }
 

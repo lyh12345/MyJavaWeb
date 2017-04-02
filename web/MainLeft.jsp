@@ -11,13 +11,12 @@
 <head>
     <title>基本信息</title>
 </head>
-<body>
+<body bgcolor="#f7f7f7">
 <%
     UserTable userTable = (UserTable) session.getAttribute("user");
 %>
-<div class="main_left">
-
-    <table width="100%" class="imagetable">
+<div>
+    <table width="100%">
         <tr>
             <th colspan="2">基本信息</th>
         </tr>
@@ -31,7 +30,7 @@
             <td><%=userTable.getName()%>
             </td>
         </tr>
-        <tr bgcolor="#a9e2a7">
+        <tr>
             <th colspan="2">常用功能</th>
         </tr>
         <tr>

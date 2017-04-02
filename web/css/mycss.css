@@ -11,19 +11,43 @@
     align-items: center;
 }
 .head1{
-    width: 99%;
+    width: 100%;
     background: #F7F7F7;
     padding: 25px 15px 25px 10px;
-    font: 12px Georgia, "Times New Roman", Times, serif;
+    font: 14px Georgia, "Times New Roman", Times, serif;
     color: #888;
     text-shadow: 1px 1px 1px #FFF;
     border:1px solid #E4E4E4;
+    height: 20px;
+}
+#head_left {
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    height: 100%;
+    width: 60%;
+    text-align: left;
+    vertical-align: middle;
+}
+#head_right {
+    margin: 0px;
+    padding:0px;
+    float: right;
+    width: 40%;
+    text-align: right;
+    vertical-align: middle;
+}
+body{
+    padding: 1px 1px 1px 1px;
+    font: 18px Georgia, "Times New Roman", Times, serif;
+    color: #888;
+    text-shadow: 1px 1px 1px #FFF;
 }
 .main_left{
     width: 100%;
-    border: 1px aquamarine;
+    border: 1px #f7f7f7;
     height: 100%;
-    background-color: #a9e2a7;
+    background-color: #fcfcfc;
 }
 /* Basic Grey */
 .basic-grey {
@@ -82,11 +106,11 @@
     border: 1px solid #DADADA;
     color: #888;
     height: 12px;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     margin-right: 6px;
-    margin-top: 2px;
+    margin-top: 8px;
     outline: 0 none;
-    padding: 3px 3px 3px 5px;
+    padding: 3px 3px 3px 3px;
     width: 12px;
     font-size: 10px;
     line-height:11px;
@@ -124,46 +148,63 @@
     text-shadow: 1px 1px 1px #9E3F3F;
     cursor: pointer;
 }
-table.imagetable {
-    font-family: verdana,arial,sans-serif;
-    font-size:11px;
-    border-width: 1px;
-    border-color: #999999;
-    border-collapse: collapse;
-    background-color: beige;
+table{
+    font-size:18px;
 }
-table.imagetable th {
+table th{
+    border: 1px solid #DADADA;
+    color: #888;
+    height: 30px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    font-size: 18px;
+    line-height:15px;
+    box-shadow: inset 0px 1px 4px #ECECEC;
+    -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+    -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+table td {
+    border: 1px solid #DADADA;
+    color: #888;
+    height: 30px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    font-size: 17px;
+    line-height:15px;
+    box-shadow: inset 0px 1px 4px #ECECEC;
+    -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+    -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+select ,input[type="text"]{
+    border: 1px solid #DADADA;
+    color: #888;
+    height: 30px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    width: auto;
+    font-size: 12px;
+    line-height:15px;
+    box-shadow: inset 0px 1px 4px #ECECEC;
+    -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+    -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+.myButton{
     background: #ffffff;
-    border-width: 1px;
-    padding: 8px;
-    border-style: solid;
-    border-color: #999999;
-}
-table.imagetable td {
-    background: #ffffff;
-    border-width: 1px;
-    padding: 8px;
-    border-style: solid;
-    border-color: #999999;
-}
-table.imagetable2 {
-    font-family: verdana,arial,sans-serif;
-    font-size:11px;
-    border-width: 1px;
-    border-color: #999999;
-    border-collapse: collapse;
-}
-table.imagetable2 th {
-    background: #ffffff;
-    border-width: 1px;
-    padding: 8px;
-    border-style: solid;
-    border-color: #999999;
-}
-table.imagetable2 td {
-    background: #ffffff;
-    border-width: 1px;
-    padding: 8px;
-    border-style: solid;
-    border-color: #999999;
+    border: none;
+    padding: 5px 5px 5px 5px;
+    height: 30px;
+    box-shadow: 1px 1px 5px #B6B6B6;
+    border-radius: 3px;
+    text-shadow: 1px 1px 1px #e3f4ff;
+    cursor: pointer;
+    font: 13px Georgia, "Times New Roman", Times, serif;
 }

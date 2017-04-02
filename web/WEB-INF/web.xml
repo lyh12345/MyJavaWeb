@@ -7,12 +7,12 @@
         <welcome-file>Index.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
-        <servlet-name>mainServlet</servlet-name>
-        <servlet-class>servlet.MainServlet</servlet-class>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>servlet.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>mainServlet</servlet-name>
-        <url-pattern>/mainServlet</url-pattern>
+        <servlet-name>loginServlet</servlet-name>
+        <url-pattern>/loginServlet</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>scoreQueryServlet</servlet-name>
@@ -29,6 +29,30 @@
     <servlet-mapping>
         <servlet-name>loginOutServlet</servlet-name>
         <url-pattern>/loginOutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>changeTermServlet</servlet-name>
+        <servlet-class>servlet.ChangeTermServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>changeTermServlet</servlet-name>
+        <url-pattern>/changeTermServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>courseSearchServlet</servlet-name>
+        <servlet-class>servlet.CourseSearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>courseSearchServlet</servlet-name>
+        <url-pattern>/courseSearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>courseChooseServlet</servlet-name>
+        <servlet-class>servlet.CourseChooseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>courseChooseServlet</servlet-name>
+        <url-pattern>/courseChooseServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>

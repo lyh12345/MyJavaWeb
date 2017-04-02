@@ -20,22 +20,27 @@
 <div class="magictime puffin">
     <%
         UserTable userTable = (UserTable) session.getAttribute("user");
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-hh-mm");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-hh:mm");
     %>
     <div class="head1">
-        <label>
-            欢迎 <%=userTable.getName()%>登陆本系统！<%=simpleDateFormat.format(new Date())%>
+        <div id="head_left">
             <form action="loginOutServlet" method="get">
-                <input type="submit" value="退出">
-            </form>
+                欢迎 <%=userTable.getName()%>登陆本系统！<%=simpleDateFormat.format(new Date())%> <input type="submit" class="myButton" value="退出">
 
-        </label>
+            </form>
+        </div>
     </div>
-    <%--分区显示--%>
-    <iframe align="left" name="ifram1" id="ifram1" frameborder="1" width="14%" height="100%" src="MainLeft.jsp">
-    </iframe>
-    <iframe align="left" name="ifram2" id="ifam2" frameborder="0" width="85%" height="100%" src="MainRight.jsp">
-    </iframe>
+    <div>
+        <%--分区显示--%>
+        <iframe align="left" name="ifram1" id="ifram1" frameborder="1" width="14%" height="100%" src="MainLeft.jsp">
+        </iframe>
+        <iframe align="left" name="ifram3" id="ifram3" scrolling="no" frameborder="0" width="85%" height="60px"
+                src="MainTop.jsp">
+        </iframe>
+        <iframe align="left|bottom" name="ifram2" id="ifam2" frameborder="0" width="85%" height="100%"
+                src="MainRight.jsp">
+        </iframe>
+    </div>
 </div>
 </body>
 </html>

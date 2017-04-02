@@ -1,6 +1,7 @@
 package servlet;
 
 import database.DatabaseCon;
+import model.Term;
 import model.UserTable;
 
 import javax.servlet.ServletException;
@@ -11,12 +12,14 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by lh
  * on 2017/3/29.
  */
-public class MainServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
         request.setCharacterEncoding("UTF-8");
         //获取提交的数据
@@ -27,9 +30,11 @@ public class MainServlet extends HttpServlet {
         HttpSession session = request.getSession();
         UserTable userTable = null;
         userTable = (UserTable) session.getAttribute("user");//获取用户信息
+        String sql = null;
+        ResultSet rs= null;
         if(userTable == null){
-            String sql = "select * from S";
-            ResultSet rs= sqlserverDB.executeQuery(sql);
+            sql = "select * from S";
+            rs= sqlserverDB.executeQuery(sql);
             try {
                 while(rs.next()){//信息的比对
                     if(rs.getString(1).trim().compareTo(usr)==0&&rs.getString(8).trim().compareTo(pwd)==0){
@@ -46,11 +51,26 @@ public class MainServlet extends HttpServlet {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            sqlserverDB.closeStatement();
-            sqlserverDB.closeConnection();
        }
         else{
             validated = true;
+        }
+        sql = "select distinct xq from O";
+        rs = sqlserverDB.executeQuery(sql);
+        List<Term> terms = new ArrayList<>();
+        try {
+            while(rs.next()){
+                Term term = new Term();
+                term.setTerm(rs.getString(1));
+                terms.add(term);
+            }
+            rs.close();
+            sqlserverDB.closeStatement();
+            sqlserverDB.closeConnection();
+            session.setAttribute("terms", terms);
+            session.setAttribute("currentTerm",terms.get(0).getTerm());
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         if(validated){
             response.sendRedirect("Main.jsp");
@@ -58,6 +78,7 @@ public class MainServlet extends HttpServlet {
         else{
             response.sendRedirect("Error.jsp");
         }
+
     }
     public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
         doGet(request, response);

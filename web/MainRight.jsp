@@ -6,11 +6,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link rel="stylesheet" type="text/css" href="css/mycss.css">
+<link rel="stylesheet" type="text/css" href="css/magic.css">
 <html>
 <head>
     <title>提示</title>
 </head>
 <body>
-请选择左侧功能！
+<div class="magictime puffIn">
+    确定学期后选择请左侧功能。
+</div>
 </body>
 </html>

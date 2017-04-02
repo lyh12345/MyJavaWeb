@@ -1,18 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: lh
-  Date: 2017/3/31
-  Time: 16:34
+  Date: 2017/4/2
+  Time: 9:14
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" type="text/css" href="css/mycss.css">
-<link rel="stylesheet" type="text/css" href="css/magic.css">
 <html>
 <head>
-    <title>退课</title>
+    <title>wu</title>
 </head>
 <body>
-退课
+
 </body>
 </html>

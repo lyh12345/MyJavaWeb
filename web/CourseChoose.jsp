@@ -13,8 +13,22 @@
     <title>选课</title>
 </head>
 <body>
-    <div class="magictime puffIn">
-        hello
-    </div>
+<div class="magictime puffIn">
+    <div height="40%"></div>
+    <form action="courseSearchServlet" method="post" target="iframCourseSearch">
+        <h2> 查询</h2>
+        课程号:<input type="text" name="courseId">
+        课程名:<input type="text" name="courseName">
+        <input type="submit" value="查询" class="myButton">
+    </form>
+    <form action="courseChooseServlet" method="post" target="iframCourseSearch">
+        <h2>选课</h2>
+        课程号:<input type="text" name="courseId">
+        教师号:<input type="text" name="courseId">
+        <input type="submit" value="确定" class="myButton">
+    </form>
+</div>
+<iframe name="iframCourseSearch" frameborder="0" height="60%" width="100%">
+</iframe>
 </body>
 </html>
