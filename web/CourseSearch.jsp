@@ -1,7 +1,8 @@
 <%@ page import="model.CourseTable" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Iterator" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%--
   Created by IntelliJ IDEA.
   User: lh
   Date: 2017/4/2
@@ -22,7 +23,7 @@
     CourseTable courseTable = null;
 %>
 <h2>查询结果</h2>
-<table width="50%">
+<table class="tables">
     <caption>开课表</caption>
     <tr align="center">
         <th>课程号</th>

@@ -24,7 +24,7 @@
     <form action="courseChooseServlet" method="post" target="iframCourseSearch">
         <h2>选课</h2>
         课程号:<input type="text" name="courseId">
-        教师号:<input type="text" name="courseId">
+        教师号:<input type="text" name="teacherId">
         <input type="submit" value="确定" class="myButton">
     </form>
 </div>

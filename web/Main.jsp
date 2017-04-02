@@ -25,7 +25,8 @@
     <div class="head1">
         <div id="head_left">
             <form action="loginOutServlet" method="get">
-                欢迎 <%=userTable.getName()%>登陆本系统！<%=simpleDateFormat.format(new Date())%> <input type="submit" class="myButton" value="退出">
+                欢迎 <%=userTable.getName()%>登陆本系统！<%=simpleDateFormat.format(new Date())%>
+                <input type="submit" class="myButton" value="退出">
 
             </form>
         </div>

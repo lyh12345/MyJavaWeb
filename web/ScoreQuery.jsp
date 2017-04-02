@@ -28,7 +28,7 @@
     Term term = null;
 %>
 <div class="magictime puffIn">
-    <table>
+    <table class="tables">
         <caption>成绩表</caption>
         <tr align="center">
             <th width="100">课号</th>

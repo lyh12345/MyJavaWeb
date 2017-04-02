@@ -11,12 +11,12 @@
 <head>
     <title>基本信息</title>
 </head>
-<body bgcolor="#f7f7f7">
+<body>
 <%
     UserTable userTable = (UserTable) session.getAttribute("user");
 %>
 <div>
-    <table width="100%">
+    <table width="100%" class="tables">
         <tr>
             <th colspan="2">基本信息</th>
         </tr>
@@ -40,7 +40,7 @@
             <td colspan="2"><a href="CourseReturn.jsp" target="ifram2">退课</a></td>
         </tr>
         <tr>
-            <td colspan="2"><a href="StudentSchedule.jsp" target="ifram2">查看课表</a></td>
+            <td colspan="2"><a href="studentScheduleServlet" target="ifram2">查看课表</a></td>
         </tr>
         <tr>
             <td colspan="2"><a href="scoreQueryServlet" target="ifram2">成绩查询</a></td>

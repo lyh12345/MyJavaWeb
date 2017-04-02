@@ -10,14 +10,13 @@
 <head>
     <title>登陆</title>
 </head>
-<body bgcolor="#faebd7">
+<body background="css/back.jpg">
 <link rel="stylesheet" type="text/css" href="css/mycss.css">
 <link rel="stylesheet" type="text/css" href="css/magic.css">
 <div class="magictime puffIn">
     <form action="loginServlet" method="post" class="basic-grey">
 
-        <h1>请登陆
-        </h1>
+        <h1>请登陆</h1>
         <label>
             <span>学号:</span>
             <input type="text" name="userId" size="20"/>

@@ -54,5 +54,13 @@
         <servlet-name>courseChooseServlet</servlet-name>
         <url-pattern>/courseChooseServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>studentScheduleServlet</servlet-name>
+        <servlet-class>servlet.StudentScheduleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>studentScheduleServlet</servlet-name>
+        <url-pattern>/studentScheduleServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>
