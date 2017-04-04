@@ -1,7 +1,9 @@
 package servlet;
 
 import database.DatabaseCon;
+import model.AvgGPAofTerm;
 import model.ScoreTable;
+import model.Term;
 import model.UserTable;
 
 import javax.servlet.ServletException;
@@ -13,6 +15,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -55,9 +58,35 @@ public class ScoreQueryServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        session.setAttribute("score", scoreTables);
+        List<Term> terms = (ArrayList) session.getAttribute("terms");
+        List<AvgGPAofTerm> avgGPAofTerms = new ArrayList<>();
+        Term term = null;
+        Iterator<Term> iterator = terms.iterator();
+        ScoreTable scoreTable = new ScoreTable();
+        while(iterator.hasNext()){
+            term = iterator.next();
+            sql = "select * from score where xq = "+"'"+term.getTerm()+"'"+" and xh = "+"'"+studentId+"'";
+            rs = databaseCon.executeQuery(sql);
+            double totalXF = 0;
+            double totalGPA = 0;
+            AvgGPAofTerm avgGPAofTerm = new AvgGPAofTerm();
+            try {
+                while(rs.next()){
+                    totalXF+=rs.getInt(5);
+                    scoreTable.setCourseGrade(rs.getDouble(6));
+                    totalGPA += (scoreTable.getCourseGPA()*rs.getInt(5));
+                }
+                avgGPAofTerm.setTerm(term.getTerm());
+                avgGPAofTerm.setAvgGPA(totalGPA/totalXF);
+                avgGPAofTerms.add(avgGPAofTerm);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
         databaseCon.closeStatement();
         databaseCon.closeConnection();
-        session.setAttribute("score", scoreTables);
+        session.setAttribute("avgGPAofTerms", avgGPAofTerms);
         resp.sendRedirect("ScoreQuery.jsp");
     }
 

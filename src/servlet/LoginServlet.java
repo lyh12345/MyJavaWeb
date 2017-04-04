@@ -25,6 +25,7 @@ public class LoginServlet extends HttpServlet {
         //获取提交的数据
         String usr = request.getParameter("userId");
         String pwd = request.getParameter("password");
+        String roles = request.getParameter("roles");
         boolean validated = false;
         DatabaseCon sqlserverDB = new DatabaseCon();
         HttpSession session = request.getSession();
@@ -32,8 +33,16 @@ public class LoginServlet extends HttpServlet {
         userTable = (UserTable) session.getAttribute("user");//获取用户信息
         String sql = null;
         ResultSet rs= null;
-        if(userTable == null){
+        String loginConfirm = "successful";
+        session.setAttribute("loginConfirm",loginConfirm);
+        //根据用户角色选择要查询的表
+        if(roles.equals("student")){
             sql = "select * from S";
+        }
+        else if(roles.equals("teacher")){
+            sql = "select * from T";
+        }
+        if(userTable == null){
             rs= sqlserverDB.executeQuery(sql);
             try {
                 while(rs.next()){//信息的比对
@@ -42,6 +51,7 @@ public class LoginServlet extends HttpServlet {
                         userTable.setId(rs.getString(1));
                         userTable.setName(rs.getString(2));
                         userTable.setPassword(rs.getString(8));
+                        userTable.setRoles(roles);
                         session.setAttribute("user", userTable);
                         validated = true;
                     }
@@ -51,10 +61,11 @@ public class LoginServlet extends HttpServlet {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-       }
-        else{
-            validated = true;
+      }
+       else{
+           validated = true;
         }
+        //选择所有出现的学期信息并保存
         sql = "select distinct xq from O";
         rs = sqlserverDB.executeQuery(sql);
         List<Term> terms = new ArrayList<>();
@@ -67,16 +78,24 @@ public class LoginServlet extends HttpServlet {
             rs.close();
             sqlserverDB.closeStatement();
             sqlserverDB.closeConnection();
-            session.setAttribute("terms", terms);
+            session.setAttribute("terms", terms);//把学期信息放入session
             session.setAttribute("currentTerm",terms.get(0).getTerm());
         } catch (SQLException e) {
             e.printStackTrace();
         }
         if(validated){
-            response.sendRedirect("Main.jsp");
+            if(userTable.getRoles().equals("student")){
+                response.sendRedirect("Main.jsp");
+            }else if(userTable.getRoles().equals("teacher")){
+                response.sendRedirect("Teacher.jsp");
+            }
+
         }
         else{
-            response.sendRedirect("Error.jsp");
+            loginConfirm = "failed";
+            session.setAttribute("loginConfirm",loginConfirm);
+            response.sendRedirect("Index.jsp");
+
         }
 
     }

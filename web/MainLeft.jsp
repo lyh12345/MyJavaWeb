@@ -33,19 +33,23 @@
         <tr>
             <th colspan="2">常用功能</th>
         </tr>
-        <tr>
-            <td colspan="2"><a href="CourseChoose.jsp" target="ifram2">选课</a></td>
-        </tr>
-        <tr>
-            <td colspan="2"><a href="CourseReturn.jsp" target="ifram2">退课</a></td>
-        </tr>
-        <tr>
-            <td colspan="2"><a href="studentScheduleServlet" target="ifram2">查看课表</a></td>
-        </tr>
-        <tr>
-            <td colspan="2"><a href="scoreQueryServlet" target="ifram2">成绩查询</a></td>
-        </tr>
     </table>
+    <br>
+    <center>
+        <form action="CourseChoose.jsp" method="post" target="ifram2">
+            <input type="submit" class="mySubmit" value="选课">
+        </form>
+        <form action="courseReturnServlet" method="post" target="ifram2">
+            <input type="submit" class="mySubmit" value="退课">
+        </form>
+        <form action="studentScheduleServlet" method="post" target="ifram2">
+            <input type="submit" class="mySubmit" value="查看课表">
+        </form>
+        <form action="scoreQueryServlet" method="post" target="ifram2">
+            <input type="submit" class="mySubmit" value="成绩查询">
+        </form>
+    </center>
+
 </div>
 </body>
 </html>

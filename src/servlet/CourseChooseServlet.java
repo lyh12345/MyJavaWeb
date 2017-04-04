@@ -32,10 +32,11 @@ public class CourseChooseServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         HttpSession session = req.getSession();
         UserTable userTable = (UserTable) session.getAttribute("user");
-        if (userTable == null) {//如果用户注销了，跳转到出错界面
+        if(userTable==null){//如果用户注销了，跳转到出错界面
             resp.sendRedirect("Error.jsp");
             return;
         }
+
         String userId = userTable.getId();
         String userName = userTable.getName();
         String currentTerm = (String) session.getAttribute("currentTerm");

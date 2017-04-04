@@ -62,5 +62,13 @@
         <servlet-name>studentScheduleServlet</servlet-name>
         <url-pattern>/studentScheduleServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>courseReturnServlet</servlet-name>
+        <servlet-class>servlet.CourseReturnServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>courseReturnServlet</servlet-name>
+        <url-pattern>/courseReturnServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>

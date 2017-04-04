@@ -8,6 +8,7 @@ public class UserTable {
     private String id;
     private String name;
     private String password;
+    private String roles;
     public void setId(String id){
         this.id = id;
     }
@@ -27,4 +28,11 @@ public class UserTable {
         return password;
     }
 
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
 }

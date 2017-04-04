@@ -2,6 +2,7 @@ package servlet;
 
 import database.DatabaseCon;
 import model.CourseTable;
+import model.UserTable;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,9 +23,15 @@ public class CourseSearchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
+        HttpSession session = req.getSession(false);
+        UserTable userTable = null;
+        userTable = (UserTable) session.getAttribute("user");
+        if(userTable==null){//如果用户注销了，跳转到出错界面
+            resp.sendRedirect("Error.jsp");
+            return;
+        }
         String courseId = req.getParameter("courseId");
         String courseName = req.getParameter("courseName");
-        HttpSession session = req.getSession();
         String currentTerm = (String) session.getAttribute("currentTerm");
         DatabaseCon databaseCon = new DatabaseCon();
         String sql = null;

@@ -24,6 +24,10 @@ public class StudentScheduleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         UserTable userTable = (UserTable) session.getAttribute("user");
+        if(userTable==null){//如果用户注销了，跳转到出错界面
+            resp.sendRedirect("Error.jsp");
+            return;
+        }
         String currentTerm = (String) session.getAttribute("currentTerm");
         String userId = userTable.getId();
         DatabaseCon databaseCon = new DatabaseCon();
