@@ -17,7 +17,7 @@
     <form action="loginServlet" method="post" class="basic-grey">
         <h1>请登陆</h1>
         <div style="text-align: center;">
-            <label for="userId">账号:</label><input type="text" id="userId" name="userId" size="20"/>
+            <label for="userId">账号:</label><input type="text" id="userId" name="userId" size="20" onblur=""/>
             <br>
             <label for="password">密码:</label><input type="password" id="password" name="password" size="20"/>
             <br>
