@@ -9,15 +9,12 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" type="text/css" href="css/mycss.css">
-<link rel="stylesheet" type="text/css" href="css/magic.css">
-
 <html>
 
 <head>
     <title>主页</title>
 </head>
 <body>
-<div class="magictime puffin">
     <%
         UserTable userTable = (UserTable) session.getAttribute("user");
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-hh:mm");
@@ -39,6 +36,5 @@
                 src="MainRight.jsp">
         </iframe>
     </div>
-</div>
 </body>
 </html>

@@ -13,7 +13,6 @@
 <body background="css/back.jpg">
 <link rel="stylesheet" type="text/css" href="css/mycss.css">
 <link rel="stylesheet" type="text/css" href="css/magic.css">
-<div class="magictime puffIn">
     <form action="loginServlet" method="post" class="basic-grey">
         <h1>请登陆</h1>
         <div style="text-align: center;">
@@ -42,6 +41,5 @@
             }
         }
     %>
-</div>
 </body>
 </html>

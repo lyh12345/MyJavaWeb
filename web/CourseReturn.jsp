@@ -12,7 +12,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" type="text/css" href="css/mycss.css">
-<link rel="stylesheet" type="text/css" href="css/magic.css">
 <html>
 <head>
     <title>退课</title>
@@ -26,7 +25,6 @@
     session.setAttribute("courseReturnLocation",location);
     int count = 0;
 %>
-<div class="magictime puffIn">
     <form action="courseReturnServlet" method="get">
         <div style="display: none">
             <input type="radio" name="location" value ="-1" checked="checked">
@@ -72,6 +70,5 @@
         </tr>
     </table>
     </form>
-</div>
 </body>
 </html>

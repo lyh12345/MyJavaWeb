@@ -14,7 +14,6 @@
 <%@ page import="model.AvgGPAofTerm" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" type="text/css" href="css/magic.css">
 <link rel="stylesheet" type="text/css" href="css/mycss.css">
 <html>
 <head>
@@ -35,7 +34,6 @@
     char c = 'A';
     ArrayList<Character> cc = new ArrayList<>();
 %>
-<div class="magictime puffIn">
     <h2>成绩表</h2>
     <table class="tables">
         <caption>成绩表</caption>
@@ -117,6 +115,5 @@
             }
         %>
     </div>
-</div>
 </body>
 </html>

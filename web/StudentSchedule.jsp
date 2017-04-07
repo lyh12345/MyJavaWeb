@@ -12,7 +12,6 @@
 <%@ page import="java.util.Collections" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <link rel="stylesheet" type="text/css" href="css/mycss.css">
-<link rel="stylesheet" type="text/css" href="css/magic.css">
 <html>
 <head>
     <title>课表</title>
@@ -51,7 +50,6 @@
     char[][] tables = new char[14][6];
     char c = 'A';
 %>
-<div class="magictime puffIn">
     <h2>课表</h2>
     <table class="tables">
         <caption>课表</caption>
@@ -123,6 +121,5 @@
             }
         %>
     </table>
-</div>
 </body>
 </html>

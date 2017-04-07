@@ -35,7 +35,7 @@
         </tr>
     </table>
     <br>
-    <center>
+    <div style="text-align: center;">
         <form action="CourseChoose.jsp" method="post" target="ifram2">
             <input type="submit" class="mySubmit" value="选课">
         </form>
@@ -48,7 +48,7 @@
         <form action="scoreQueryServlet" method="post" target="ifram2">
             <input type="submit" class="mySubmit" value="成绩查询">
         </form>
-    </center>
+    </div>
 
 </div>
 </body>

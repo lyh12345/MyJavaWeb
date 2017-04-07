@@ -11,7 +11,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" type="text/css" href="css/mycss.css">
-<link rel="stylesheet" type="text/css" href="css/magic.css">
 <html>
 <head>
     <title>查询结果</title>

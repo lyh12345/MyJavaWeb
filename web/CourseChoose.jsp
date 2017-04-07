@@ -6,14 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" type="text/css" href="css/magic.css">
 <link rel="stylesheet" type="text/css" href="css/mycss.css">
 <html>
 <head>
     <title>选课</title>
 </head>
 <body>
-<div class="magictime puffIn">
     <div height="40%"></div>
     <form action="courseSearchServlet" method="post" target="iframCourseSearch">
         <h2> 查询</h2>
@@ -27,7 +25,6 @@
         教师号:<input type="text" name="teacherId">
         <input type="submit" value="确定" class="myButton">
     </form>
-</div>
 <iframe name="iframCourseSearch" frameborder="0" height="60%" width="100%">
 </iframe>
 </body>
