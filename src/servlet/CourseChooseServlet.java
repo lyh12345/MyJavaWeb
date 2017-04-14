@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -45,6 +46,23 @@ public class CourseChooseServlet extends HttpServlet {
         DatabaseCon databaseCon = new DatabaseCon();
         Connection connection = databaseCon.getConnection();
         PreparedStatement statement;
+        String sql = "select sksj from O where xq = "+"'"+currentTerm+"'"+" and kh = "+"'"+courseId+"'"+" and gh = "+
+                "'"+teacherId+"'";
+        ResultSet rs;
+        rs = databaseCon.executeQuery(sql);
+        try {
+            rs.next();
+            String sksj = rs.getString(1);
+            sql = "select sksj from O,E where O.xq = E.xh and O.kh = E.kh and O.gh = E.gh and E.xq = "+"'"+currentTerm+"'"+" and E.xh = "+"'"+userId+"'"+" and O.sksj = "+"'"+sksj+"'";
+            rs = databaseCon.executeQuery(sql);
+            rs.next();
+            out.println("<html><body>");
+            out.println("<font size = 10px color = #888>选课失败，请检查相关信息，并查看课表是否冲突</font>");
+            out.println("</body></html>");
+            return;
+        } catch (SQLException e) {
+            //e.printStackTrace();
+        }
         try {
             statement = connection.prepareStatement("insert into E(xh,xq,kh,gh) values(?,?,?,?)");
             statement.setString(1, userId);

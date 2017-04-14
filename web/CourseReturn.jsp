@@ -22,14 +22,14 @@
     Iterator<CourseTable> iterator = courseTables.iterator();
     CourseTable courseTable = null;
     int location = -1;
-    session.setAttribute("courseReturnLocation",location);
+    session.setAttribute("courseReturnLocation", location);
     int count = 0;
 %>
-    <form action="courseReturnServlet" method="get">
-        <div style="display: none">
-            <input type="radio" name="location" value ="-1" checked="checked">
-        </div>
-        <h2>退课</h2>
+<form action="courseReturnServlet" method="get">
+    <div style="display: none">
+        <input type="radio" name="location" value="-1" checked="checked">
+    </div>
+    <h2>退课</h2>
     <table class="tables">
         <caption>课表</caption>
         <tr align="center">
@@ -46,7 +46,7 @@
                 courseTable = iterator.next();
         %>
         <tr align="center">
-            <td><input type="radio" name="location" value = <%=count%>>
+            <td><input type="radio" name="location" value= <%=count%>>
             </td>
             <td><%=courseTable.getCourseId()%>
             </td>
@@ -69,6 +69,6 @@
             <td colspan="7"><input type="submit" class="mySubmit2" value="退课"></td>
         </tr>
     </table>
-    </form>
+</form>
 </body>
 </html>

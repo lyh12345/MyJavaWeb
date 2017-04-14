@@ -13,33 +13,33 @@
 <body background="css/back.jpg">
 <link rel="stylesheet" type="text/css" href="css/mycss.css">
 <link rel="stylesheet" type="text/css" href="css/magic.css">
-    <form action="loginServlet" method="post" class="basic-grey">
-        <h1>请登陆</h1>
-        <div style="text-align: center;">
-            <label for="userId">账号:</label><input type="text" id="userId" name="userId" size="20" onblur=""/>
-            <br>
-            <label for="password">密码:</label><input type="password" id="password" name="password" size="20"/>
-            <br>
-            <input type="radio" id="student" name="roles" value="student" checked="checked"><label
-                for="student">学生</label>
-            <input type="radio" id="teacher" name="roles" value="teacher"><label for="teacher">教师</label>
-            <input type="radio" id=" manager" name="roles" value="manager"><label for=" manager">管理员</label>
-            <br>
-            <label>
-                <input type="submit" value="登陆">
-            </label>
-        </div>
-    </form>
-    <% String flag = (String) session.getAttribute("loginConfirm");
-        if (!(flag == null)) {
-            if (flag.equals("failed")) {
-    %>
-    <center>
-        <font color="red">密码或账号错误！</font>
-    </center>
-    <%
-            }
+<form action="loginServlet" method="post" class="basic-grey">
+    <h1>请登陆</h1>
+    <div style="text-align: center;">
+        <label for="userId">账号:</label><input type="text" id="userId" name="userId" size="20" onblur=""/>
+        <br>
+        <label for="password">密码:</label><input type="password" id="password" name="password" size="20"/>
+        <br>
+        <input type="radio" id="student" name="roles" value="student" checked="checked"><label
+            for="student">学生</label>
+        <input type="radio" id="teacher" name="roles" value="teacher"><label for="teacher">教师</label>
+        <input type="radio" id=" manager" name="roles" value="manager"><label for=" manager">管理员</label>
+        <br>
+        <label>
+            <input type="submit" value="登陆">
+        </label>
+    </div>
+</form>
+<% String flag = (String) session.getAttribute("loginConfirm");
+    if (!(flag == null)) {
+        if (flag.equals("failed")) {
+%>
+<div style="text-align: center;">
+    <span style="color: red; ">密码或账号错误！</span>
+</div>
+<%
         }
-    %>
+    }
+%>
 </body>
 </html>

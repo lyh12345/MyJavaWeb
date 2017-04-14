@@ -19,7 +19,7 @@ public class LoginOutServlet extends HttpServlet {//注销实现
             resp.sendRedirect("Index.jsp");
             return;
         }
-        session.removeAttribute("user");//清除用户信息
+        session.invalidate();//清除用户信息
         resp.sendRedirect("Index.jsp");
     }
 
