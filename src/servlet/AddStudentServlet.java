@@ -52,7 +52,7 @@ public class AddStudentServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("student_list.jsp");
+        response.sendRedirect("FindStudent");
 
 
     }

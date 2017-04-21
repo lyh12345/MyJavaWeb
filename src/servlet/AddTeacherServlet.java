@@ -37,7 +37,7 @@ public class AddTeacherServlet extends HttpServlet {
         try {
             DatabaseCon databaseCon = new DatabaseCon();
             Connection connection = databaseCon.getConnection();
-            statement = connection.prepareStatement("insert into T(gh,xm,xb,csrq,xl,jbgz,xyh,password) VALUES(?,?,?,?,?,?,?,?)");
+            statement = connection.prepareStatement("insert into T(gh,xm,xb,csrq,xl,jbgz,xyh,pwd) VALUES(?,?,?,?,?,?,?,?)");
             statement.setString(1, gh);
             statement.setString(2, xm);
             statement.setString(3, xb);
@@ -51,7 +51,7 @@ public class AddTeacherServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("teacher_list.jsp");
+        response.sendRedirect("FindTeacher");
 
 
     }

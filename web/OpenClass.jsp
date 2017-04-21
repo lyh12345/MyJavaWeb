@@ -36,32 +36,36 @@
         <input type="number" max="10" min="1" name="begin">-
         <input type="number" max="10" min="1" name="end">
     </label>
-<input type="submit" class="myButton" name="提交">
-<input type="reset" class="myButton" name="重置">
-    <table class="tables">
-        <caption>开课表</caption>
-        <tr>
-            <th>学期</th>
-            <th>课号</th>
-            <th>课程名</th>
-            <th>上课时间</th>
-        </tr>
-        <% List<Tclass> list= (List<Tclass>) session.getAttribute("nowclass");
-            int i;
-            for(i=0;i<list.size();i++)
-            {%>
-        <tr>
-
-            <td><%=list.get(i).getXq() %></td>
-            <td><%=list.get(i).getKh() %></td>
-            <td><%=list.get(i).getName() %></td>
-            <td><%=list.get(i).getSksj() %></td>
-        </tr>
-
-        <%
-            }
-        %>
-    </table>
+    <input type="submit" class="myButton" name="提交">
+    <input type="reset" class="myButton" name="重置">
 </form>
+<table class="tables">
+    <caption>开课表</caption>
+    <tr>
+        <th>学期</th>
+        <th>课号</th>
+        <th>课程名</th>
+        <th>上课时间</th>
+    </tr>
+    <% List<Tclass> list = (List<Tclass>) session.getAttribute("nowclass");
+        int i;
+        for (i = 0; i < list.size(); i++) {%>
+    <tr>
+
+        <td><%=list.get(i).getXq() %>
+        </td>
+        <td><%=list.get(i).getKh() %>
+        </td>
+        <td><%=list.get(i).getName() %>
+        </td>
+        <td><%=list.get(i).getSksj() %>
+        </td>
+    </tr>
+
+    <%
+        }
+    %>
+</table>
+
 </body>
 </html>

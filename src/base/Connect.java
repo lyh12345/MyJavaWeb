@@ -10,15 +10,13 @@ public class Connect {
     private Connection conn;
     ResultSet rs;
 
-    public Connect(){
+    public Connect() {
         stmt = null;
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=SCHOOL", "sa", "935686942");
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         rs = null;
@@ -32,6 +30,17 @@ public class Connect {
             System.err.println("Data.executeQuery:" + e.getMessage());
         }
         return rs;
+    }
+
+    public int executeUpdate(String sql) {
+        int t = 0;
+        try {
+            stmt = conn.createStatement();
+            t = stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.err.println("Data.executeUpdate:" + e.getMessage());
+        }
+        return t;
     }
 
     public void closeStmt() {

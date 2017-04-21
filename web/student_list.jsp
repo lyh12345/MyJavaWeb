@@ -21,7 +21,7 @@
     StudentTable studentTable = null;
     /* 判断集合是否有效 */
 %>
-<table align="center" class="tables">
+<table class="tables">
     <caption>全部学生信息</caption>
     <tr>
         <th align="center" valign="middle">学号</th>

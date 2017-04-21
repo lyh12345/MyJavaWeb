@@ -13,13 +13,12 @@
 <link rel="stylesheet" type="text/css" href="css/mycss.css">
 <html>
 <head>
-    <title>教师信息</title>
 </head>
 <body>
-<table align="center" class="tables">
+<table class="tables">
     <caption>全部教师信息</caption>
     <tr>
-        <th lign="center" valign="middle">工号</td>
+        <th align="center" valign="middle">工号</th>
         <th align="center" valign="middle">姓名</th>
         <th align="center" valign="middle">性别</th>
         <th align="center" valign="middle">出生日期</th>
@@ -63,7 +62,7 @@
                 <input type="hidden" name="gh" value="<%=teacherTable.getGh()%>">
             </td>
             <td>
-                <input type="text" name="xm" value="<%=teacherTable.getXm()%>" size="12">
+                <input type="text" name="xm" value="<%=teacherTable.getXm()%>" size="12"/>
             </td>
             <td>
                 <input type="text" name="xb" value="<%=teacherTable.getXb()%>" size="5">

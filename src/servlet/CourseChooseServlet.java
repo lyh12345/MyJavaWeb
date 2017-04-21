@@ -50,16 +50,20 @@ public class CourseChooseServlet extends HttpServlet {
                 "'"+teacherId+"'";
         ResultSet rs;
         rs = databaseCon.executeQuery(sql);
+        String sksj = null;
         try {
-            rs.next();
-            String sksj = rs.getString(1);
+            while (rs.next()){
+                sksj = rs.getString(1);
+            }
+            rs.close();
             sql = "select sksj from O,E where O.xq = E.xh and O.kh = E.kh and O.gh = E.gh and E.xq = "+"'"+currentTerm+"'"+" and E.xh = "+"'"+userId+"'"+" and O.sksj = "+"'"+sksj+"'";
             rs = databaseCon.executeQuery(sql);
-            rs.next();
-            out.println("<html><body>");
-            out.println("<font size = 10px color = #888>选课失败，请检查相关信息，并查看课表是否冲突</font>");
-            out.println("</body></html>");
-            return;
+            while (rs.next()){
+                out.println("<html><body>");
+                out.println("<font size = 10px color = #888>选课失败，请检查相关信息，并查看课表是否冲突</font>");
+                out.println("</body></html>");
+                return;
+            }
         } catch (SQLException e) {
             //e.printStackTrace();
         }
@@ -75,7 +79,7 @@ public class CourseChooseServlet extends HttpServlet {
             out.println("</body></html>");
             databaseCon.closeConnection();
         } catch (SQLException e) {
-            // e.printStackTrace();
+            e.printStackTrace();
             out.println("<html><body>");
             out.println("<font size = 10px color = #888>选课失败，请检查相关信息，并查看课表是否冲突</font>");
             out.println("</body></html>");
