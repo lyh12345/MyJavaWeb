@@ -23,7 +23,7 @@
         <input type="radio" id="student" name="roles" value="student" checked="checked"><label
             for="student">学生</label>
         <input type="radio" id="teacher" name="roles" value="teacher"><label for="teacher">教师</label>
-        <input type="radio" id=" manager" name="roles" value="manager"><label for=" manager">管理员</label>
+        <input type="radio" id="manager" name="roles" value="manager"><label for="manager">管理员</label>
         <br>
         <label>
             <input type="submit" value="登陆">

@@ -27,7 +27,7 @@ public class DatabaseCon {
     }
     public ResultSet executeQuery(String sql){
         try {
-            statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
         } catch (SQLException e) {
             // TODO Auto-generated catch block

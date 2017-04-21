@@ -37,68 +37,72 @@ public class LoginServlet extends HttpServlet {
         String loginConfirm = "successful";
         session.setAttribute("loginConfirm",loginConfirm);
         //根据用户角色选择要查询的表
-        if(roles.equals("student")){
-            sql = "select * from S";
-            if(userTable == null){
-                rs= sqlserverDB.executeQuery(sql);
-                try {
-                    while(rs.next()){//信息的比对
-                        if(rs.getString(1).trim().compareTo(usr)==0&&rs.getString(8).trim().compareTo(pwd)==0){
-                            userTable = new UserTable();
-                            userTable.setId(rs.getString(1));
-                            userTable.setName(rs.getString(2));
-                            userTable.setPassword(rs.getString(8));
-                            userTable.setRoles(roles);
-                            session.setAttribute("user", userTable);
-                            validated = true;
+        switch (roles) {
+            case "student":
+                sql = "select * from S";
+                if (userTable == null) {
+                    rs = sqlserverDB.executeQuery(sql);
+                    try {
+                        while (rs.next()) {//信息的比对
+                            if (rs.getString(1).trim().compareTo(usr) == 0 && rs.getString(8).trim().compareTo(pwd) == 0) {
+                                userTable = new UserTable();
+                                userTable.setId(rs.getString(1));
+                                userTable.setName(rs.getString(2));
+                                userTable.setPassword(rs.getString(8));
+                                userTable.setRoles(roles);
+                                session.setAttribute("user", userTable);
+                                validated = true;
+                            }
                         }
+                        rs.close();
+                    } catch (SQLException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
                     }
-                    rs.close();
-                } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                } else {
+                    validated = true;
                 }
-            }
-            else{
-                validated = true;
-            }
-        }
-        else if(roles.equals("teacher")){
-            sql = "select * from T";
-            String tt="true";
-            session.setAttribute("tt",tt);
-            mTeacher teacher=null;
-            teacher=(mTeacher)session.getAttribute("teacher");
-            if (teacher==null){
-                rs=sqlserverDB.executeQuery(sql);
-                try{
-                    while(rs.next()){
-                        if((rs.getString("gh").trim().equals(usr))&&(rs.getString("pwd").trim().equals(pwd)))
-                        {teacher=new mTeacher();
-                            teacher.setGh(rs.getString(1));
-                            teacher.setXm(rs.getString(2));
-                            teacher.setXb(rs.getString(3));
-                            teacher.setCsrq(rs.getDate(4));
-                            teacher.setXl(rs.getString(5));
-                            teacher.setJbgz(rs.getDouble(6));
-                            teacher.setYxh(rs.getString(7));
-                            teacher.setPwd(rs.getString(8));
-                            session.setAttribute("teacher",teacher);
-                            validated=true;
+                break;
+            case "teacher":
+                sql = "select * from T";
+                String tt = "true";
+                session.setAttribute("tt", tt);
+                mTeacher teacher = null;
+                teacher = (mTeacher) session.getAttribute("teacher");
+                if (teacher == null) {
+                    rs = sqlserverDB.executeQuery(sql);
+                    try {
+                        while (rs.next()) {
+                            if ((rs.getString("gh").trim().equals(usr)) && (rs.getString("pwd").trim().equals(pwd))) {
+                                teacher = new mTeacher();
+                                teacher.setGh(rs.getString(1));
+                                teacher.setXm(rs.getString(2));
+                                teacher.setXb(rs.getString(3));
+                                teacher.setCsrq(rs.getDate(4));
+                                teacher.setXl(rs.getString(5));
+                                teacher.setJbgz(rs.getDouble(6));
+                                teacher.setYxh(rs.getString(7));
+                                teacher.setPwd(rs.getString(8));
+                                session.setAttribute("teacher", teacher);
+                                validated = true;
+                            }
                         }
-                    }
-                    rs.close();
+                        rs.close();
 
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    validated = true;
                 }
-            }
-            else
-            {
-                validated=true;
-            }
-        }else{
-            return;
+                break;
+            case "manager":
+                if(usr.equals("root")&&pwd.equals("123456")){
+                    validated = true;
+                }
+                break;
+            default:
+                return;
         }
 
         //选择所有出现的学期信息并保存
@@ -122,8 +126,12 @@ public class LoginServlet extends HttpServlet {
         if(validated){
             if(roles.equals("student")){
                 response.sendRedirect("Main.jsp");
-            }else if(roles.equals("teacher")){
+            }
+            else if(roles.equals("teacher")){
                 response.sendRedirect("MainOfTeacher.jsp");
+            }
+            else if(roles.equals("manager")){
+                response.sendRedirect("MainOfManager.jsp");
             }
 
         }
